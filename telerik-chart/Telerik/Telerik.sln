@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TelerikChart", "TelerikChart\", "{4DB8BF0B-001A-42C7-B1A0-9C5967062035}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Telerik", "Telerik\", "{555C9FA6-31C0-476F-9F2F-6D69A2EEF9E4}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_62077"
-		Debug.AspNetCompiler.PhysicalPath = "TelerikChart\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62077\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52852"
+		Debug.AspNetCompiler.PhysicalPath = "Telerik\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52852\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_62077"
-		Release.AspNetCompiler.PhysicalPath = "TelerikChart\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62077\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52852"
+		Release.AspNetCompiler.PhysicalPath = "Telerik\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52852\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "62077"
-		SlnRelativePath = "TelerikChart\"
+		VWDPort = "52852"
+		SlnRelativePath = "Telerik\"
 		DefaultWebSiteLanguage = "Visual Basic"
 	EndProjectSection
 EndProject
@@ -30,13 +30,13 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4DB8BF0B-001A-42C7-B1A0-9C5967062035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4DB8BF0B-001A-42C7-B1A0-9C5967062035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555C9FA6-31C0-476F-9F2F-6D69A2EEF9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555C9FA6-31C0-476F-9F2F-6D69A2EEF9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B5C6CF5A-E249-4DA9-A3E4-7BCD7CBD2D48}
+		SolutionGuid = {24249A57-F40D-4DF6-8342-586A251E1FC2}
 	EndGlobalSection
 EndGlobal
