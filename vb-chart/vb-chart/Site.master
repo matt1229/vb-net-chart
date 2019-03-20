@@ -17,8 +17,15 @@
 </head>
 <body>
     <form runat="server">
-        <telerik:RadScriptManager runat="server"></telerik:RadScriptManager>
-       
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+            </Scripts>
+        </telerik:RadScriptManager>
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+        </telerik:RadAjaxManager>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
