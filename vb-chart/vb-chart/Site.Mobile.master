@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="VB" AutoEventWireup="true" CodeFile="Site.Mobile.master.vb" Inherits="Site_Mobile" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 
 <%@ Register Src="~/ViewSwitcher.ascx" TagPrefix="friendlyUrls" TagName="ViewSwitcher" %>
 
