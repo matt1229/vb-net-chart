@@ -7,6 +7,8 @@ Partial Class _Default
     Protected Sub Page_Load(sender As Object, e As System.EventArgs)
         RadHtmlChart1.DataSource = GetData()
         RadHtmlChart1.DataBind()
+        RadHtmlChart2.DataSource = GetData2()
+        RadHtmlChart2.DataBind()
     End Sub
 
     Private Function GetData() As DataSet
@@ -16,15 +18,15 @@ Partial Class _Default
         dt.Columns.Add("UsedDate", Type.[GetType]("System.DateTime"))
         dt.Columns.Add("Usage", Type.[GetType]("System.Decimal"))
 
-        ' dt.Rows.Add(1, "1992-04-01", 10)
-        ' dt.Rows.Add(2, "1992-04-02", 20)
-
         Using MyReader As New Microsoft.VisualBasic.
                         FileIO.TextFieldParser(
                           "C:\Line.csv")
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
             Dim currentRow As String()
+            Dim idx As Integer
+            idx = 0
+
             While Not MyReader.EndOfData
                 Try
                     currentRow = MyReader.ReadFields()
@@ -34,10 +36,11 @@ Partial Class _Default
                     currentDate = currentRow(0)
                     currentValue = currentRow(1)
 
-                    If (currentDate <> "DT") Then
+                    If (idx > 0) Then
                         dt.Rows.Add(1, Convert.ToDateTime(currentDate), CDbl(Val(currentValue)))
-
                     End If
+
+                    idx += 1
 
                 Catch ex As Microsoft.VisualBasic.
                         FileIO.MalformedLineException
@@ -50,4 +53,48 @@ Partial Class _Default
         ds.Tables.Add(dt)
         Return ds
     End Function
+
+    Private Function GetData2() As DataSet
+        Dim ds As New DataSet("ChargeCurrentTimeRatio")
+        Dim dt As New DataTable("ChargeData")
+        dt.Columns.Add("Id", Type.[GetType]("System.Int32"))
+        dt.Columns.Add("UsedDate", Type.[GetType]("System.DateTime"))
+        dt.Columns.Add("Usage", Type.[GetType]("System.Decimal"))
+
+        Using MyReader As New Microsoft.VisualBasic.
+                        FileIO.TextFieldParser(
+                          "C:\Line.csv")
+            MyReader.TextFieldType = FileIO.FieldType.Delimited
+            MyReader.SetDelimiters(",")
+            Dim currentRow As String()
+            Dim idx As Integer
+            idx = 0
+
+            While Not MyReader.EndOfData
+                Try
+                    currentRow = MyReader.ReadFields()
+                    Dim currentDate As String
+                    Dim currentValue As String
+
+                    currentDate = currentRow(0)
+                    currentValue = currentRow(1)
+
+                    If (idx > 0) Then
+                        dt.Rows.Add(1, Convert.ToDateTime(currentDate), CDbl(Val(currentValue)))
+                    End If
+
+                    idx += 1
+
+                Catch ex As Microsoft.VisualBasic.
+                        FileIO.MalformedLineException
+                    MsgBox("Line " & ex.Message &
+                "is not valid and will be skipped.")
+                End Try
+            End While
+        End Using
+
+        ds.Tables.Add(dt)
+        Return ds
+    End Function
+
 End Class
