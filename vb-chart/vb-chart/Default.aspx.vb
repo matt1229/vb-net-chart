@@ -63,7 +63,7 @@ Partial Class _Default
 
         Using MyReader As New Microsoft.VisualBasic.
                         FileIO.TextFieldParser(
-                          "C:\Column.csv")
+                          "D:\Column.csv")
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
             Dim currentRow As String()
@@ -79,10 +79,8 @@ Partial Class _Default
                     currentDate = currentRow(0)
                     currentValue = currentRow(1)
 
-                    If (idx > 0 And idx < 10) Then
-                        ' dt.Rows.Add(1, Convert.ToDateTime(currentDate), CDbl(Val(currentValue)))
-                        dt.Rows.Add(1, Convert.ToDateTime(currentDate), CDbl(Val(currentValue)))
-
+                    If (idx > 0 And IsDate(currentDate)) Then
+                        dt.Rows.Add(1, DateTime.Parse(currentDate), CDbl(Val(currentValue)))
                     End If
 
                     idx += 1
