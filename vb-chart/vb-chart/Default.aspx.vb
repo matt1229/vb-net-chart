@@ -58,12 +58,12 @@ Partial Class _Default
         Dim ds As New DataSet("ChargeCurrentTimeRatio")
         Dim dt As New DataTable("ChargeData")
         dt.Columns.Add("Id", Type.[GetType]("System.Int32"))
-        dt.Columns.Add("UsedDate", Type.[GetType]("System.DateTime"))
+        dt.Columns.Add("UsedDate", Type.[GetType]("System.String"))
         dt.Columns.Add("Usage", Type.[GetType]("System.Decimal"))
 
         Using MyReader As New Microsoft.VisualBasic.
                         FileIO.TextFieldParser(
-                          "C:\Line.csv")
+                          "C:\Column.csv")
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
             Dim currentRow As String()
@@ -79,8 +79,10 @@ Partial Class _Default
                     currentDate = currentRow(0)
                     currentValue = currentRow(1)
 
-                    If (idx > 0) Then
+                    If (idx > 0 And idx < 10) Then
+                        ' dt.Rows.Add(1, Convert.ToDateTime(currentDate), CDbl(Val(currentValue)))
                         dt.Rows.Add(1, Convert.ToDateTime(currentDate), CDbl(Val(currentValue)))
+
                     End If
 
                     idx += 1

@@ -25,7 +25,7 @@
                                             <TitleAppearance Text="Charge" />
                                         </YAxis>
                                     </PlotArea>
-                                    <ChartTitle Text="Scatter Series">
+                                    <ChartTitle Text="Scatter">
                                     </ChartTitle>
                                 </telerik:RadHtmlChart>
                             </telerik:LayoutColumn>
@@ -48,7 +48,7 @@
                                                             <LabelsAppearance Visible="false" />
                                                         </telerik:ColumnSeries>
                                                     </Series>
-                                                    <XAxis DataLabelsField="Name">
+                                                    <XAxis DataLabelsField="UsedDate">
                                                         <LabelsAppearance DataFormatString="{0:M/d/yyyy hh:mm:ss}" />
                                                     </XAxis>
                                                     <YAxis>
