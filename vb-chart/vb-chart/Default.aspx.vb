@@ -1,6 +1,7 @@
 ﻿
 Imports System
 Imports System.Data
+Imports Telerik.Web.UI
 
 Partial Class _Default
     Inherits System.Web.UI.Page
@@ -96,5 +97,14 @@ Partial Class _Default
         ds.Tables.Add(dt)
         Return ds
     End Function
-
+    Protected Sub RadRadioButtonList1_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim radioButtonList As RadRadioButtonList = TryCast(sender, RadRadioButtonList)
+        If (radioButtonList.SelectedValue Is "scatter") Then
+            RadHtmlChart1.Visible = True
+            RadHtmlChart2.Visible = False
+        Else
+            RadHtmlChart1.Visible = False
+            RadHtmlChart2.Visible = True
+        End If
+    End Sub
 End Class
