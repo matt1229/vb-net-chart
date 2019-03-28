@@ -19,9 +19,11 @@ Partial Class _Default
         dt.Columns.Add("UsedDate", Type.[GetType]("System.DateTime"))
         dt.Columns.Add("Usage", Type.[GetType]("System.Decimal"))
 
+        Dim dataDirectory As String = AppDomain.CurrentDomain.BaseDirectory
+
         Using MyReader As New Microsoft.VisualBasic.
                         FileIO.TextFieldParser(
-                          "C:\Line.csv")
+                          dataDirectory + "Line.csv")
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
             Dim currentRow As String()
@@ -62,9 +64,11 @@ Partial Class _Default
         dt.Columns.Add("UsedDate", Type.[GetType]("System.String"))
         dt.Columns.Add("Usage", Type.[GetType]("System.Decimal"))
 
+        Dim dataDirectory As String = AppDomain.CurrentDomain.BaseDirectory
+
         Using MyReader As New Microsoft.VisualBasic.
                         FileIO.TextFieldParser(
-                          "D:\Column.csv")
+                          dataDirectory + "Column.csv")
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
             Dim currentRow As String()

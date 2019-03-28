@@ -12,25 +12,29 @@
                 </Items>
            </telerik:radcombobox>
             <div class="radio-container">
+               <br />
                <telerik:RadRadioButtonList runat="server" ID="ChartType" AutoPostBack="true" CssClass="content" OnSelectedIndexChanged="RadRadioButtonList1_SelectedIndexChanged">
                   <Items>
                     <telerik:ButtonListItem Text="Scatter" Value="scatter" />
                     <telerik:ButtonListItem Text="Column" Value="column" />
                   </Items>
                </telerik:RadRadioButtonList>
+                <br />
+                <br />
             </div>
            <script type="text/javascript">
-                $(".radio-container").attr("style", "visibility:hidden");
-                function OnClientSelectedIndexChangingHandler(sender, eventArgs) {
+               function OnClientSelectedIndexChangingHandler(sender, eventArgs) {
                     var radcombobox = $find('<%=RadComboBox1.ClientID %>');
                     var radiobox = $find('<%=ChartType.ClientID %>');
                     var selecteditemtext = radcombobox.get_selectedItem().get_text();
                     var selecteditemvalue = radcombobox.get_selectedItem().get_value();
                     if (selecteditemvalue !== "-1") {
+                       $(".radio-container").attr("style", "visibility: visible");
                         radiobox.set_visible(true);
                     } else {
-                       $(".demo-container").attr("style", "visibility:hidden");
-                       $(".demo-container1").attr("style", "visibility:hidden");
+                       $(".radio-container").attr("style", "visibility: hidden");
+                       $(".demo-container").attr("style", "visibility: hidden");
+                       $(".demo-container1").attr("style", "visibility :hidden");
                     }
                }
             </script>
