@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Default.aspx.vb" Inherits="_Default" %>
 
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-        <telerik:radcombobox id="RadComboBox1" 
+        <% If User.Identity.IsAuthenticated Then %>
+                <telerik:radcombobox id="RadComboBox1" 
                     runat="server" 
                     OnClientSelectedIndexChanged="OnClientSelectedIndexChangingHandler">
                   <Items >   
@@ -26,7 +27,6 @@
                $(document).ready(function() {
                    var radcombobox = $find('<%=RadComboBox1.ClientID %>');
                    var selecteditemvalue = radcombobox.get_selectedItem().get_value();
-                   alert(selecteditemvalue)
                    if (selecteditemvalue !== "-1")
                        $(".radio-container").attr("style", "visibility: visible");
                    else $(".radio-container").attr("style", "visibility: hidden");
@@ -112,5 +112,5 @@
                     </Rows>
                 </telerik:RadPageLayout>
             </div>
-
+        <% End If %>
     </asp:Content>

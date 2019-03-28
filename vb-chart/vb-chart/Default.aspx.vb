@@ -1,15 +1,18 @@
 ﻿
 Imports System
 Imports System.Data
+Imports System.Web
 Imports Telerik.Web.UI
 
 Partial Class _Default
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(sender As Object, e As System.EventArgs)
-        RadHtmlChart1.DataSource = GetData()
-        RadHtmlChart1.DataBind()
-        RadHtmlChart2.DataSource = GetData2()
-        RadHtmlChart2.DataBind()
+        If (Not (IsNothing(RadHtmlChart1))) Then
+            RadHtmlChart1.DataSource = GetData()
+            RadHtmlChart1.DataBind()
+            RadHtmlChart2.DataSource = GetData2()
+            RadHtmlChart2.DataBind()
+        End If
     End Sub
 
     Private Function GetData() As DataSet
