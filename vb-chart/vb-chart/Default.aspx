@@ -5,7 +5,7 @@
                     runat="server" 
                     OnClientSelectedIndexChanged="OnClientSelectedIndexChangingHandler">
                   <Items >   
-                     <telerik:RadComboBoxItem runat="server" Text="Please select item" Value="-1" />   
+                    <telerik:RadComboBoxItem runat="server" Text="Please select item" Value="-1" Selected="true" />   
                     <telerik:RadComboBoxItem runat="server" Text="Well 1" Value="1" />   
                     <telerik:RadComboBoxItem runat="server" Text="Well 2" Value="2" />   
                     <telerik:RadComboBoxItem runat="server" Text="Well 3" Value="3" /> 
@@ -23,10 +23,17 @@
                 <br />
             </div>
            <script type="text/javascript">
+               $(document).ready(function() {
+                   var radcombobox = $find('<%=RadComboBox1.ClientID %>');
+                   var selecteditemvalue = radcombobox.get_selectedItem().get_value();
+                   alert(selecteditemvalue)
+                   if (selecteditemvalue !== "-1")
+                       $(".radio-container").attr("style", "visibility: visible");
+                   else $(".radio-container").attr("style", "visibility: hidden");
+               });
                function OnClientSelectedIndexChangingHandler(sender, eventArgs) {
                     var radcombobox = $find('<%=RadComboBox1.ClientID %>');
                     var radiobox = $find('<%=ChartType.ClientID %>');
-                    var selecteditemtext = radcombobox.get_selectedItem().get_text();
                     var selecteditemvalue = radcombobox.get_selectedItem().get_value();
                     if (selecteditemvalue !== "-1") {
                        $(".radio-container").attr("style", "visibility: visible");
